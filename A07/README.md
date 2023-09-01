@@ -161,183 +161,112 @@ Thanks for your patronage!
 ## Pseudocode
 
 ```
-1. DECLARE const double 
-    PRICE_AMERICANO = 2.25
-    PRICE_CAPPUCCINO = 3.25
-    PRICE_MOCHA = 4.25
+1. DISPLAY Welcome message
+2. DECLARE userMenu as an integer type, goodiesChoice as a char type, arteBask, tipAmount as double type variables.
+3. SET constant double variables: DONUT_COST = 4.00, PASTRY_COST = 3.56, CAKEPOP_COST = 2.00, SANDWICH_COST = 5.65, MELT_COST = 4.65, LATTE_COST = 3.10, TEA_COST = 1.35, BEV_COST = 2.30.
+4. DO 
+          DISPLAY prompt : Please pick from the following options
+Donuts / Pastries / Cake Pop 
+Sandwiches / Melts
+Latte / Tea / Cold Beverage
+Quit
+       1. INPUT userMenu
+       2. Validate with if -else options 
+          a.) IF userMenu == 1 THEN
+DISPLAY - Would you like: 
+                       D: Donuts  $4.00
+                       P: Pastries  $3.56
+                       C: Cake Pop  $2.00
+INPUT goodiesChoice
+SELECT goodiesChoice:
+Case D:
+carteBask += DONUT_COST
+break
+Case P:
+carteBask += PASTRY_COST
+break
+Case C:
+carteBask += CAKEPOP_COST
+break
+Case default:
+“Invalid input”
+NESTED WHILE not type integer THEN
+DISPLAY - To clarify, would you like a donut ("D"), pastry ("P"), or a cakepop ("C")?
+IF goodiesChoice is D or d THEN
+carteBask += DONUT_COST
+ELSE IF goodiesChoice is P or p THEN 
+ carteBask += PASTRY_COST
+ELSE IF goodiesChoice is C or c THEN
+carteBask += CAKEPOP_COST
+END NESTED WHILE
+DISPLAY - Your total is: 
 
-    PRICE_GREEN_TEA = 1.33
-    PRICE_OOLONG = 1.66
-    PRICE_SPICED_CHAI = 2.33
+         b.) IF userMenu == 2 THEN
+ DISPLAY - Would you like 
+                       S: Sandwiches $ 5.65
+                       M: Melts $4.65
+INPUT goodiesChoice
+SELECT goodiesChoice:
+              Case S:
+              carteBask +=  SANDWICH_COST 
+              break
+              Case M:
+              carteBask +=  MELT_COST
+              break
+             Case default:
+             “Invalid Input”
+ NESTED WHILE not type integer THEN
+DISPLAY - To clarify, would you like a sandwich ("S"), or a melt ("C")?
+IF goodiesChoice is D or d THEN
+carteBask += DONUT_COST
+ELSE IF goodiesChoice is P or p THEN 
+ carteBask += PASTRY_COST
+ELSE IF goodiesChoice is C or c THEN
+carteBask += CAKEPOP_COST
+END NESTED WHILE
+DISPLAY - Your total is: 
 
-    PRICE_MUFFIN = 1.99
-    PRICE_BAGEL = 2.99
-    PRICE_OMELETTE = 6.99
+           c.) IF userMenu == 3 THEN  
+DISPLAY - Would you like 
+                       L: Latte $4.00
+                       T: Tea $4.35
+                       B: Cold Beverage $2.30
+ INPUT goodiesChoice
+ SELECT goodiesChoice
+              Case L:
+              catreBask += LATTE_COST
+              break
+              Case T:
+              catreBask += TEA_COST
+              break
+              Case B:
+              catreBask += BEV_COST
+              break
+             Case default:
+             Invalid Message
+            NESTED WHILE not type integer THEN
+DISPLAY - To clarify, would you like a Latte ("L"), Tea (“T”), or a cold beverage ("B")?
+IF goodiesChoice is L or l THEN
+carteBask += LATTE_COST
+ELSE IF goodiesChoice is Tor t THEN 
+ carteBask += TASTE_COST
+ELSE IF goodiesChoice is B or b THEN
+carteBask += BEV_COST
+END NESTED WHILE
+DISPLAY - Your total is: 
+   } WHILE userMenu != 4 
 
-2. DECLARE const char 
-    COFFEE = '1'
-    TEA = '2'
-    FOOD = '3'
-    EXIT = '4'
+9. IF carteBask > 0.0001 THEN
+DISPLAY - Would you like to leave a tip? Suggested amounts:
+DISPLAY - 10% = {carteBask *0.1} 
+DISPLAY - 15% = {carteBask *0.15}
+DISPLAY - 20% = {carteBask *0.2}
+DISPLAY - Enter tip amount: 
+END IF
+10. SET CarteBask += tipAmount
+11. DISPLAY - Total Amount Due:
+12. DISPLAY - goodbye message 
 
-    AMERICANO = '1'
-    CAPPUCCINO = '2'
-    MOCHA = '3'
-
-    GREEN_TEA = '1'
-    OOLONG = '2'
-    SPICED_CHAI = '3'
-
-    MUFFIN = '1'
-    BAGEL = '2'
-    OMELETTE = '3'
-
-3. DECLARE double subTotal = 0.0
-4. DECLARE double orderTotal = 0.0
-5. DECLARE double tipAmount = 0.0
-
-6. DECLARE char choice = ' '
-7. DECLARE char subChoice = ' '
-
-8. SET precision to 2 decimals, fixed
-
-9. DISPLAY welcome message
-
-10. DO
-    a. DISPLAY Please choose an option:
-    b. DISPLAY 1. Coffee
-    c. DISPLAY 2. Tea
-    d. DISPLAY 3. Food
-    e. DISPLAY 4. Exit
-
-    f. DISPLAY Please enter the number of your selection:
-    g. INPUT choice 
-
-    h. WHILE choice < '1' OR choice > '4'
-        DISPLAY Invalid selection! Please try again!
-        INPUT choice
-    i. ENDWHILE
-      
-    j. SELECT choice
-        1. CASE COFFEE:
-            a. DISPLAY What kind of coffee would you like?
-            b. DISPLAY 1. Americano
-            c. DISPLAY 2. Cappuccino
-            d. DISPLAY 3. Mocha
-
-            e. DISPLAY Please enter the number of your selection:
-            f. INPUT subChoice
-
-            g. WHILE subChoice < '1' OR subChoice > '3'
-                1. DISPLAY Invalid selection! Please try again!
-                2. INPUT subChoice
-            h. ENDWHILE
-
-            i. SELECT subChoice
-                1. CASE AMERICANO:
-                    a. DISPLAY Americano added.
-                    b. SET subTotal += PRICE_AMERICANO
-            
-                2. CASE CAPPUCCINO:
-                    a. DISPLAY Cappuccino added.
-                    b. SET subTotal += PRICE_CAPPUCCINO
-            
-                3. CASE MOCHA:
-                    a. DISPLAY Mocha added.
-                    b. SET subTotal += PRICE_MOCHA
-
-                4. DEFAULT
-                    (nothing)
-            j. ENDSELECT
-
-        2. CASE TEA:
-            a. DISPLAY What kind of tea would you like?
-            b. DISPLAY 1. Green Tea
-            c. DISPLAY 2. Oolong
-            d. DISPLAY 3. Spiced Chai
-
-            e. DISPLAY Please enter the number of your selection:
-            f. INPUT subChoice
-
-            g. WHILE subChoice < '1' OR subChoice > '3'
-                1. DISPLAY Invalid selection! Please try again!
-                2. INPUT subChoice
-            h. ENDWHILE
-
-            j. SELECT subChoice
-                1. CASE GREEN_TEA:
-                    a. DISPLAY Green tea added.
-                    b. SET subTotal += PRICE_GREEN_TEA
-            
-                2. CASE OOLONG:
-                    a. DISPLAY Oolong added.
-                    b. SET subTotal += PRICE_OOLONG
-            
-                3. CASE SPICED_CHAI:
-                    a. DISPLAY Spiced chai added.
-                    b.SET subTotal += PRICE_SPICED_CHAI
-
-                4. DEFAULT
-                    a. (nothing)
-            k. END SELECT
-            
-        3. CASE FOOD:
-            a. DISPLAY What kind of food would you like?
-            b. DISPLAY 1. Muffin
-            c. DISPLAY 2. Bagel with Cream Cheese
-            d. DISPLAY 3. Omelette
-
-            e. DISPLAY Please enter the number of your selection:
-            f. INPUT subChoice
-
-            g. WHILE subChoice < '1' OR subChoice > '3'
-                1. DISPLAY Invalid selection! Please try again!
-                2. INPUT subChoice
-            h. ENDWHILE
-
-            j. SELECT subChoice:
-                1. CASE MUFFIN:
-                    a. DISPLAY Muffin added.
-                    b. SET subTotal += PRICE_MUFFIN
-                    
-                2. CASE BAGEL:
-                    a. DISPLAY Bagel with cream cheese added.
-                    b. SET subTotal += PRICE_BAGEL
-                    
-                3. CASE OMELETTE:
-                    a. DISPLAY Omelette added.
-                    b. SET subTotal += PRICE_OMELETTE
-
-                4. DEFAULT
-                    a. (nothing)
-            k. ENDSELECT
-                
-        4. DEFAULT:
-            a. (nothing)
-
-    k. ENDSELECT
-
-    l. DISPLAY Subtotal: ${subTotal}
-
-11. WHILE choice != EXIT
-    
-    a. DISPLAY Please add a tip. Suggested tip amounts:
-    b. DISPLAY 15% = $ {subTotal * 0.15}
-    c. DISPLAY 20% = $ {subTotal * 0.20}
-    d. DISPLAY 25% = $ {subTotal * 0.25}
-
-    e. DISPLAY Please enter tip amount:
-    f. INPUT tipAmount
-
-    g. SET orderTotal = subTotal + tipAmount
-
-    h. DISPLAY Subtotal ${subTotal}
-    i. DISPLAY Tip ${tipAmount}
-    j. DISPLAY Grand Total ${orderTotal}
-
-    k. DISPLAY Thanks for your patronage!
-    
-12. END
 ```
 
 ## Flowchart:
